@@ -1,0 +1,177 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!doctype html>
+<html lang="zxx">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Car Serving a Auto Mobile Category Category Bootstrap Responsive Template | Services :: W3layouts</title>
+  <!-- Template CSS -->
+  <link href="//fonts.googleapis.com/css?family=Poppins:300,400,400i,500,600,700&display=swap" rel="stylesheet">
+  <link href="//fonts.googleapis.com/css2?family=Limelight&display=swap" rel="stylesheet">
+  <!-- Template CSS -->
+  
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="/stylesheets/style-starter.css">
+</head>
+
+<body>
+ 
+  <!--/header-->
+   <!-- about breadcrumb -->
+   <section class="w3l-about-breadcrumb position-relative text-center">
+    <div class="breadcrumb-bg breadcrumb-bg-about py-sm-5 py-4">
+      <div class="container py-lg-5 py-3">
+        <h2 class="title">Admin Profile</h2>
+        <ul class="breadcrumbs-custom-path mt-2">
+          <li><a href="#url">Home</a></li>
+          <li class="active"><span class="fa fa-angle-double-right mx-2" aria-hidden="true"></span>Admin  Profile </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <!-- //about breadcrumb -->
+	<!--/services-sec-->
+	<div class="w3-services py-5">
+   <section style="background-color: #eee;">
+  <div class="container py-5">
+{{#if admins}}
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="card mb-4">
+          <div class="card-body text-center">
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+              class="rounded-circle img-fluid" style="width: 150px;">
+            <h5 class="my-3">{{admins.Name}}</h5>
+            <p class="text-muted mb-1">Auto Bros Admin</p>
+            <p class="text-muted mb-4">{{admins.Address}}</p>
+            <div class="d-flex justify-content-center mb-2">
+              {{!-- <a href="/deleteprofile/{{user._id}}"  onclick="return c('Are you want to Delete your Account {{user.Name}}')"class="btn btn-danger">Delete</a>
+               <a href="/editprofile/{{user._id}}" class="btn btn-outline-primary ms-3">Edit</a> <br>
+                --}}
+              </div>
+          </div>
+        </div>
+       
+      </div>
+      <div class="col-lg-8">
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Full Name</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{admins.Name}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Email</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{admins.Email}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Phone</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{admins.Phone}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Address</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{admins.Address}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Pincode</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-muted mb-0">{{admins.Pincode}}</p>
+              </div>
+            </div>
+            {{/if}}
+            {{!--  --}}
+      
+          
+          
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+	</div>
+ 
+	<!--//services-sec-->
+  <!-- footer-66 -->
+ 
+                {{!-- <form action="#" method="post" class="footer-newsletter">
+
+                  <input type="email" name="email" class="form-input" placeholder="Enter your email..">
+
+                  <button type="submit" class="btn">Subscribe</button>
+                </form> --}}
+   
+  <!--//footer-66 -->
+  <!-- Template JavaScript -->
+  <script src="/javascripts/jquery-3.3.1.min.js"></script>
+  <script src="/javascripts/theme-change.js"></script>
+  <!-- disable body scroll which navbar is in active -->
+  <script>
+    $(function () {
+      $('.navbar-toggler').click(function () {
+        $('body').toggleClass('noscroll');
+      })
+    });
+  </script>
+  <!-- disable body scroll which navbar is in active -->
+  <!--/MENU-JS-->
+  <script>
+    $(window).on("scroll", function () {
+      var scroll = $(window).scrollTop();
+
+      if (scroll >= 80) {
+        $("#site-header").addClass("nav-fixed");
+      } else {
+        $("#site-header").removeClass("nav-fixed");
+      }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function () {
+      $("header").toggleClass("active");
+    });
+    $(document).on("ready", function () {
+      if ($(window).width() > 991) {
+        $("header").removeClass("active");
+      }
+      $(window).on("resize", function () {
+        if ($(window).width() > 991) {
+          $("header").removeClass("active");
+        }
+      });
+    });
+  </script>
+  <!--//MENU-JS-->
+
+  <script src="/javascripts/bootstrap.min.js"></script>
+
+</body>
+
+</html>

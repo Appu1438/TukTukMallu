@@ -1,0 +1,197 @@
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!doctype html>
+<html lang="zxx">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Car Serving a Auto Mobile Category Category Bootstrap Responsive Template | Contact :: W3layouts</title>
+  <!-- Template CSS -->
+  <link href="//fonts.googleapis.com/css?family=Poppins:300,400,400i,500,600,700&display=swap" rel="stylesheet">
+  <link href="//fonts.googleapis.com/css2?family=Limelight&display=swap" rel="stylesheet">
+  <!-- Template CSS -->
+  {{!-- <link rel="stylesheet" href="stylesheets/style-starter.css"> --}}
+  
+
+  <!-- Template CSS -->
+</head>
+
+<body>
+  <!--header-->
+
+  <!--/header-->
+  <!-- about breadcrumb -->
+  <section class="w3l-about-breadcrumb position-relative text-center">
+    <div class="breadcrumb-bg breadcrumb-bg-about py-sm-5 py-4">
+      <div class="container py-lg-5 py-3">
+        <h2 class="title">Payment</h2>
+        <ul class="breadcrumbs-custom-path mt-2">
+          <li><a href="#url">Home</a></li>
+          <li class="active"><span class="fa fa-angle-double-right mx-2" aria-hidden="true"></span>Payment</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <!-- //about breadcrumb -->
+  <section class="w3l-contact-11">
+    <div class="form-41-mian py-5">
+      <div class="container py-lg-4">
+        <div class="row align-form-map">
+          <div class="col-lg-6 form-inner-cont">
+            <div class="title-content text-left">
+              <h3 class="hny-title mb-lg-5 mb-4">Details</h3>
+            </div><P>
+            <form action="" id="checkoutform" class="signin-form">
+              <div class="form-input">
+                <input type="text" name="userid" value="{{user._id}}" hidden id="">
+                <input type="text" name="Name" required="" value="{{user.Name}}" id="Name" placeholder="Name" />
+              </div>
+              <div class="row con-two">
+                <div class="col-lg-6 form-input">
+                  <input type="text" name="Phone" id="Phone" value="{{user.Phone}}" placeholder="Phone" required="" />
+                </div>
+                <div class="col-lg-6 form-input">
+                  <input type="email" name="Email" placeholder="Email" value="{{user.Email}}" id="Email" required="" class="contact-input" />
+                </div>
+                {{!-- <div class="col-lg-6 form-input">
+                    <input type="radio" required="" name="Payment" value="COD" id="">Please Select this Box
+                <input type="radio" hidden  name="Payment" value="ONLINE" id="">
+              
+                </div> --}}
+               </div>
+              <div class="submit-button text-lg-right">
+               <button type="submit" class="btn btn-style">Request</button>
+                {{!-- <button type="submit" class="btn btn-style">PAY {{total}}RS</button> --}}
+              </div>
+            </form>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+  $(document).ready(function() {
+   $("#checkoutform").submit((e) =>{
+      e.preventDefault()
+      $.ajax({
+        url:'/checkout',
+        method:'post',
+        data: $('#checkoutform').serialize(),
+        success:(response)=>{
+          if(response.codsuccess){
+            location.href='/placed'
+          }else{
+            razorpayPayment(response)
+          }
+        }
+      })
+    })
+
+    function razorpayPayment(order) {
+    var options = {
+      "key": "rzp_test_xC1qCIx8ibFqvF", // Enter the Key ID generated from the Dashboard
+      "amount": order.amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+      "currency": "INR",
+      "name": "Adithyan",
+      "description": "Test Transaction",
+      "image": "https://example.com/your_logo",
+      "order_id": order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+      "handler": function (response) {
+        
+        verifypayment(response,order)
+      },
+      "prefill": {
+        "name":$("#Name").val(),
+        "email": $("#Email").val(),
+        "contact": $("#Phone").val(),
+      },
+      "notes": {
+        "address": "Razorpay Corporate Office"
+      },
+      "theme": {
+        "color": "#3399cc"
+      }
+    };
+    var rzp1 = new Razorpay(options);
+    rzp1.open();
+
+  }
+  function verifypayment(payment,order){
+    $.ajax({
+      url:'/verifypayment',
+      data:{
+        payment,
+        order
+      },
+      method:'post',
+      success:(response)=>{
+        if(response.status){
+            location.href = '/placed'
+        }else{
+          alert("Payment failed")
+        }
+        
+
+      }
+    })
+  }
+ 
+  });
+</script>
+
+ 
+  <!-- footer-66 -->
+
+  <!--//footer-66 -->
+  <!-- Template JavaScript -->
+  
+ <script src="/javascripts/theme-change.js"></script>
+  <!-- disable body scroll which navbar is in active -->
+  <script>
+    $(function () {
+      $('.navbar-toggler').click(function () {
+        $('body').toggleClass('noscroll');
+      })
+    });
+  </script>
+  <!-- disable body scroll which navbar is in active -->
+  <!--/MENU-JS-->
+  <script>
+    $(window).on("scroll", function () {
+      var scroll = $(window).scrollTop();
+
+      if (scroll >= 80) {
+        $("#site-header").addClass("nav-fixed");
+      } else {
+        $("#site-header").removeClass("nav-fixed");
+      }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function () {
+      $("header").toggleClass("active");
+    });
+    $(document).on("ready", function () {
+      if ($(window).width() > 991) {
+        $("header").removeClass("active");
+      }
+      $(window).on("resize", function () {
+        if ($(window).width() > 991) {
+          $("header").removeClass("active");
+        }
+      });
+    });
+  </script>
+  <!--//MENU-JS-->
+
+  <script src="/javascripts/bootstrap.min.js"></script>
+
+</body>
+
+</html>
